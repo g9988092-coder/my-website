@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زورو ستور | أول متجر كويتي</title>
+    <!-- استدعاء خط عربي حديث (Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #10b981;
+            --dark-green: #059669;
+            --bg-dark: #07130e;
+            --card-bg: #0f241b;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* الهيدر */
+        header {
+            background-color: rgba(15, 36, 27, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: 0.5px;
+        }
+
+        .badge-kw {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--primary-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid var(--primary-green);
+        }
+
+        /* القسم الرئيسي والنبذة */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to left, #34d399, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-box {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 25px;
+            border-radius: 16px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-box h2 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .about-box p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* قسم المنتجات */
+        .products-section {
+            padding: 35px 5% 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary-green);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 380px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.25);
+        }
+
+        .product-icon {
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--primary-green);
+        }
+
+        .product-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--primary-green);
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        .price-tag span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary-green);
+            color: #042f1e;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 800;
+            padding: 15px;
+            border-radius: 12px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #34d399;
+            transform: scale(1.02);
+        }
+
+        /* قسم الدعم الفني 24/7 */
+        .support-section {
+            padding: 10px 5% 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .support-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(16, 185, 129, 0.45);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 650px;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .support-badge {
+            display: inline-block;
+            background-color: rgba(16, 185, 129, 0.16);
+            color: #34d399;
+            border: 1px solid var(--primary-green);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .support-card h2 {
+            color: var(--primary-green);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .support-card p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 22px;
+        }
+
+        .support-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            padding: 13px 28px;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .support-btn:hover {
+            background-color: var(--primary-green);
+            color: #042f1e;
+            transform: translateY(-2px);
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">زورو ستور</div>
+        <div class="badge-kw">أول متجر كويتي 🇰🇼</div>
+    </header>
+
+    <!-- القسم التعريفي -->
+    <section class="hero">
+        <h1>مرحباً بك في زورو ستور</h1>
+        <div class="about-box">
+            <h2>نبذة عن المتجر</h2>
+            <p>
+                <strong>زورو ستور</strong> هو أول متجر كويتي متخصص وموثوق يوفر لك أندر الإضافات والعناصر الرقمية بأفضل الأسعار، مع سرعة في التسليم وضمان كامل لتجربة شراء آمنة وسهلة داخل الكويت.
+            </p>
+        </div>
+    </section>
+
+    <!-- قسم العرض والبيع -->
+    <section class="products-section">
+        <div class="product-card">
+            <div class="product-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C7.58 2 4 5.58 4 10c0 2.85 1.5 5.35 3.75 6.75V20c0 .55.45 1 1 1h6.5c.55 0 1-.45 1-1v-3.25C18.5 15.35 20 12.85 20 10c0-4.42-3.58-8-8-8zm-2.5 11c-.83 0-1.5-.67-1.5-1.5S8.67 10 9.5 10s1.5.67 1.5 1.5S10.33 13 9.5 13zm5 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+            </div>
+            <h3 class="product-title">كوربلوكس (Korblox)</h3>
+            <p class="product-desc">تسليم سريع ومضمون عبر التواصل المباشر</p>
+            
+            <div class="price-tag">
+                30 <span>دينار كويتي</span>
+            </div>
+
+            <!-- رابط واتساب مباشر برقم الكويت 96555961194 -->
+            <a href="https://wa.me/96555961194?text=السلام%20عليكم،%20أرغب%20بشراء%20كوربلوكس%20من%20زورو%20ستور" target="_blank" class="buy-btn">
+                للشراء
+            </a>
+        </div>
+    </section>
+
+    <!-- قسم الدعم الفني -->
+    <section class="support-section">
+        <div class="support-card">
+            <div class="support-badge">الدعم الفني 24/7 ساعة</div>
+            <h2>الدعم الفني</h2>
+            <p>للاستفسار والشكاوي تواصل معا الدعم فني</p>
+            <a href="https://wa.me/96555961194?text=السلام%20عليكم،%20لدي%20استفسار%20أو%20شكوى%20بخصوص%20زورو%20ستور" target="_blank" class="support-btn">
+                تواصل مع الدعم الفني (+965 55961194)
+            </a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        جميع الحقوق محفوظة &copy; 2026 - زورو ستور (أول متجر كويتي) | دعم فني 24/7: 55961194
+    </footer>
+
+</body>
+</html>
